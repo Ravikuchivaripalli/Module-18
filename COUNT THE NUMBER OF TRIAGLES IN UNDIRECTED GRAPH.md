@@ -9,7 +9,7 @@ To write a Python program to count the number of triangles present in an undirec
 
 1. **Input the Graph**:
    - Start by taking the number of vertices as input.
-   - Represent the graph using an adjacency matrix where `graph[i][j]` indicates the presence of an edge between vertices `i` and `j`.
+   - Represent the graph using an adjacency matrix where `graph[i][j]` indicates the prAesence of an edge between vertices `i` and `j`.a
 
 2. **Matrix Multiplication**:
    - Initialize matrices `aux2` and `aux3` for storing the square and cube of the adjacency matrix respectively.
@@ -30,9 +30,53 @@ To write a Python program to count the number of triangles present in an undirec
 
 ## Program
 ```
+
+# A Python3 program for finding number of
+# triangles in an Undirected Graph. The
+# program is for adjacency matrix
+# representation of the graph
+
+# Utility function for matrix
+# multiplication
+def multiply(A, B, C):
+	global V
+	for i in range(V):
+		for j in range(V):
+			C[i][j] = 0
+			for k in range(V):
+				C[i][j] += A[i][k] * B[k][j]
+
+# Utility function to calculate
+# trace of a matrix (sum of
+# diagonal elements)
+def getTrace(graph):
+	global V
+	trace = 0
+	for i in range(V):
+		trace += graph[i][i]
+	return trace
+
+# Utility function for calculating
+# number of triangles in graph
+def triangleInGraph(graph):
+	global V
+	
+	# To Store graph^2
+	aux2 = [[None] * V for i in range(V)]
+
+	# To Store graph^3
+	aux3= [[None]*V for i in range(V)]
+
+	# Initialising aux
+	# matrices with 0
+	for i in range(V):
+		for j in range(V):
+			aux2[i][j] = aux3[i][j] = 0
 ```
 
 ## OUTPUT
 
+<img width="718" height="143" alt="image" src="https://github.com/user-attachments/assets/3e8149d2-b4ef-4461-b133-78a8d5daf074" />
 
 ## RESULT
+Thus , the python code is written and executed successfully.
